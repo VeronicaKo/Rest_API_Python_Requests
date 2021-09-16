@@ -7,6 +7,9 @@ website_pet_fps = 'https://petstore.swagger.io/v2/pet/findByStatus'
 website_pet_store= 'https://petstore.swagger.io/v2/store/'
 website_pet_user= 'https://petstore.swagger.io/v2/user/'
 
+def UploadImage():
+    pass
+
 def add_new_pet(idp, namep):
     new_pet = {
         "id": idp,
@@ -118,6 +121,8 @@ def update_pet_with_data(idp, namep, status):
         print(added_pet.headers)
         print(added_pet.text)
 
+def DeletesPet(idp):
+    pass
 
 def ReturnPetInventoriesByStatus():
     rsp = requests.get(website_pet_store + 'inventory')
@@ -199,30 +204,57 @@ def CreateListOfUsers():
 
 
 def GetUserByUserName(User_name):
-    rsp = requests.get(website_pet_user+'createWithList' + "/" + User_name)
+    rsp = requests.get(website_pet_user + User_name)
     stat_code = rsp.status_code
     if stat_code < 400:
-        print(f'User № {User_name} found. Status code is {stat_code}')
+        print(f'User {User_name} found. Status code is {stat_code}')
     else:
-        print(f'User № {User_name} is NOT found. Status code is {stat_code}')
+        print(f'User {User_name} is NOT found. Status code is {stat_code}')
         print(rsp.headers)
         print(rsp.text)
 
 
+def UpdatedUser(param):
+    pass
+
+
+def DeleteUser(param):
+    pass
+
+
+def LogsUserIntoTheSystem(param, param1):
+    pass
+
+
+def LogsOutCurrentLoggedInUserSession():
+    pass
+
+
+class CreateUser(object):
+    pass
+
+
 if __name__ == '__main__':
+    UploadImage()
     # for i in range(2,10):
     #     add_new_pet(i, Person('en').name())
 
-    # find_pet_by_id('3')
     # update_an_existing_pet('2', 'shushu')
     # stat = ['pending', 'available', 'sold']
     # for i in stat:
     #     find_pet_by_status(i)
+    # find_pet_by_id('3')
     # update_pet_with_data('2', 'ricki', 'sold')
+    DeletesPet('1')
 
     # ReturnPetInventoriesByStatus()
     # OrderPet(f'{datetime.now().date()}T{str(datetime.now().time())[0:-3]}Z')
     # FindPurchaseOrderByID('1') # 1<=ID<=10
     # DeletePurchaseOrderByID('3')
-    CreateListOfUsers()
-    GetUserByUserName('user1')
+    # CreateListOfUsers()
+    # GetUserByUserName('string')
+    UpdatedUser('string')
+    DeleteUser('string')
+    LogsUserIntoTheSystem('Bob','password')
+    LogsOutCurrentLoggedInUserSession()
+    CreateUser()
