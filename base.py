@@ -41,7 +41,7 @@ def add_new_pet(id_pet: str, name_pet: str):
 
 
 def find_pet_by_id(id_pet: str):
-    rsp = requests.get(website_pet + "/" + id_pet)
+    rsp = requests.get(f'{website_pet}"/"{id_pet}')
     stat_code = rsp.status_code
     if stat_code < 400:
         print(f'Pet № {id_pet} found. Status code is {stat_code}')
@@ -127,7 +127,7 @@ def deletes_pet(id_pet: str):
 
 
 def return_pet_inventories_by_status():
-    rsp = requests.get(website_pet_store + 'inventory')
+    rsp = requests.get(f'{website_pet_store}inventory')
     stat_code = rsp.status_code
     if stat_code < 400:
         print(f'Inventory is success. Status code is {stat_code}')
@@ -147,7 +147,7 @@ def order_pet(dataN):
         "status": "placed",
         "complete": True
     }
-    add_order = requests.post(website_pet_store + 'order', json=new_order)
+    add_order = requests.post(f'{website_pet_store}order', json=new_order)
     stat_code = add_order.status_code
     if add_order.status_code < 400:
         print(f'Order added. Status code is {stat_code}')
@@ -158,7 +158,7 @@ def order_pet(dataN):
 
 
 def find_purchase_order_by_id(id_pet: str):
-    rsp = requests.get(website_pet_store + 'order/' + id_pet)
+    rsp = requests.get(f'{website_pet_store}order/{id_pet}')
     stat_code = rsp.status_code
     if stat_code < 400:
         print(f'Purchase order № {id_pet} found. Status code is {stat_code}')
@@ -170,7 +170,7 @@ def find_purchase_order_by_id(id_pet: str):
 
 
 def delete_purchase_order_by_id(id_pet: str):
-    rsp = requests.delete(website_pet_store + 'order/' + id_pet)
+    rsp = requests.delete(f'{website_pet_store}order/{id_pet}')
     print(website_pet_store + 'order/' + id_pet)
     stat_code = rsp.status_code
     if stat_code < 400:
@@ -194,7 +194,7 @@ def create_list_of_users():
         "userStatus": 0
     }]
 
-    added_user = requests.post(website_pet_user + 'createWithList', json=new_user)
+    added_user = requests.post(f'{website_pet_user}createWithList', json=new_user)
     stat_code = added_user.status_code
     if added_user.status_code < 400:
         print(f'User added. Status code is {stat_code}')
@@ -206,7 +206,7 @@ def create_list_of_users():
 
 
 def get_user_by_user_name(User_name: str):
-    rsp = requests.get(website_pet_user + User_name)
+    rsp = requests.get(f'{website_pet_user}User_name')
     stat_code = rsp.status_code
     if stat_code < 400:
         print(f'User {User_name} found. Status code is {stat_code}')
