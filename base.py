@@ -1,6 +1,4 @@
 import requests
-from mimesis import Person
-from datetime import datetime
 
 website_pet = 'https://petstore.swagger.io/v2/pet'
 website_pet_fps = 'https://petstore.swagger.io/v2/pet/findByStatus'
@@ -238,25 +236,3 @@ def create_user(object):
     pass
 
 
-if __name__ == '__main__':
-    upload_image()
-
-    update_an_existing_pet('2', 'shushu')
-    stat = ['pending', 'available', 'sold']
-    for i in stat:
-        find_pet_by_status(i)
-    # find_pet_by_id('3')
-    update_pet_with_data('2', 'ricki', 'sold')
-    deletes_pet('1')
-
-    return_pet_inventories_by_status()
-    order_pet(f'{datetime.now().date()}t{str(datetime.now().time())[0:-3]}z')
-    find_purchase_order_by_id('1')  # 1<=id<=10
-    delete_purchase_order_by_id('3')
-    create_list_of_users()
-    get_user_by_user_name('string')
-    updated_user('string')
-    delete_user('string')
-    logs_user_into_the_system('bob', 'password')
-    logs_out_current_logged_in_user_session()
-    create_user()
