@@ -1,4 +1,7 @@
+import datetime
+
 import requests
+import typing
 
 website_pet = 'https://petstore.swagger.io/v2/pet'
 website_pet_fps = 'https://petstore.swagger.io/v2/pet/findByStatus'
@@ -6,7 +9,7 @@ website_pet_store = 'https://petstore.swagger.io/v2/store/'
 website_pet_user = 'https://petstore.swagger.io/v2/user/'
 
 
-def upload_image(id_pet: str, img_pet) -> int:
+def upload_image(id_pet: str, img_pet: typing.IO) -> int:
     add_img = requests.post(f'{website_pet}/{id_pet}/uploadImage', files=img_pet)
     return add_img.status_code
 
@@ -102,7 +105,7 @@ def return_pet_inventories_by_status() -> int:
     return rsp.status_code
 
 
-def order_pet(data_order) -> int:
+def order_pet(data_order: typing.Union[datetime.date, str]) -> int:
     new_order = {
         "id": 0,
         "petId": 0,
