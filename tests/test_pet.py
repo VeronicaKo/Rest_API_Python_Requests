@@ -1,19 +1,13 @@
 import pytest
 import base
 from mimesis import Person
-from PIL import Image
 
 
-@pytest.mark.pet1
+# @pytest.mark.pet1
 def test_upload_image():
-    file = Image.open('dog.jpg')
-    base.upload_image('11', file)
-    # if add_img.status_code < 400:
-    #     print(f'Pet № {id_pet} added. Status code is {stat_code}')
-    # else:
-    #     print(f'Pet № {id_pet} is NOT added. Status code is {stat_code}')
-    #     print(add_img.headers)
-    #     print(add_img.text)
+    file_name = 'dog.jpg'
+    file = {'file': (file_name, open(file_name, 'rb'), 'image/jpg', {'Expires': '0'})}
+    assert base.upload_image('1', file) < 400, f"Image {file_name} not upload added  for pet № {1}"
 
 
 def test_add_new_pet():
