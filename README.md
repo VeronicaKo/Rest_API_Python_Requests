@@ -17,6 +17,5 @@
 6. pip install -r C:\envir\requirements.txt
 7. запустить тесты из одного файла можно командой: pytest -v C:/envir/tests/test_user.py
 8. запустить все тесты из каталога можно командой: pytest -v C:/envir/tests/
-9. в конце работы деактивировать виртуальное окружение: deactivate.bat
-
-
+9. запустить один тест из файла: pytest -v C:/envir/tests/ -k test_upload_image
+10. в конце работы деактивировать виртуальное окружение: deactivate.bat
