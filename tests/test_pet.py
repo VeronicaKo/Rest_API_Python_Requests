@@ -6,9 +6,8 @@ from mimesis import Person
 
 
 def test_upload_image():
-    file_name = 'dog.jpg'
-    path = f'{os.getcwd()}\\tests\{file_name}'
-    our_file = {'file': (path, open(file_name, 'rb'), 'image/jpg', {'Expires': '0'})}
+    file_name = '../dog.jpg'
+    our_file = {'file': (file_name, open(file_name, 'rb'), 'image/jpg', {'Expires': '0'})}
     assert base.upload_image('1', our_file) < 400, f"Image {file_name} not upload added  for pet № {1}"
 
 
