@@ -20,6 +20,10 @@
 - запустить один тест из файла: pytest -v C:/envir/tests/ -k test_create_list_of_users_with_given_input_array
 - в конце работы деактивировать виртуальное окружение: deactivate.bat
 
+
+<br>
+
+
 # What is the project about
 Demonstration of working with the free site API https://petstore.swagger.io/#/
 
