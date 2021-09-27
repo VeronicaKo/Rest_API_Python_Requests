@@ -9,10 +9,8 @@
 # Для запуска тестов не через IDE: 
 - клонировать этот проект
 - перейти в папку с проектом
-- создать и активировать виртуальное окружение:
+- создать и активировать в этой папке виртуальное окружение:
   ```cmd 
-    mkdir envir
-    cd envir
     python -m venv rest_env
     rest_env/Scripts/activate.bat
   ```
@@ -42,10 +40,8 @@ To work, you need Python at least version 3.5
 # To run tests without an IDE:
 - clone this project
 - go to the project folder
-- create and activate a virtual environment:
+- create and activate a virtual environment in this folder:
 ```cmd
-  mkdir envir
-  cd envir
   python -m venv rest_env
   rest_env/Scripts/activate.bat
 ```
