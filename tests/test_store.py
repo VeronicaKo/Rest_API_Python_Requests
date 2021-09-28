@@ -8,7 +8,7 @@ def test_return_pet_inventories_by_status():
 
 
 def test_order_pet():
-    assert base.order_pet(f'{datetime.now().date()}t{str(datetime.now().time())[0:-3]}z') == 200, f'Order is NOT added'
+    assert base.order_pet(f'{datetime.now().date()}T{str(datetime.now().time())[0:-3]}Z') == 200, f'Order is NOT added'
 
 
 def test_find_purchase_order_by_id():
