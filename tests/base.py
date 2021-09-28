@@ -9,12 +9,12 @@ website_pet_store = 'https://petstore.swagger.io/v2/store/'
 website_pet_user = 'https://petstore.swagger.io/v2/user/'
 
 
-def upload_image(id_pet: str, img_pet: typing.IO) -> int:
+def upload_image(id_pet: int, img_pet: typing.IO) -> int:
     add_img = requests.post(f'{website_pet}/{id_pet}/uploadImage', files=img_pet)
     return add_img.status_code
 
 
-def add_new_pet(id_pet: str, name_pet: str) -> int:
+def add_new_pet(id_pet: int, name_pet: str) -> int:
     new_pet = {
         "id": id_pet,
         "category": {
@@ -38,12 +38,12 @@ def add_new_pet(id_pet: str, name_pet: str) -> int:
     return add_pet.status_code
 
 
-def find_pet_by_id(id_pet: str) -> int:
+def find_pet_by_id(id_pet: int) -> int:
     rsp = requests.get(f'{website_pet}/{id_pet}')
     return rsp.status_code
 
 
-def update_an_existing_pet(id_pet: str, name_pet: str) -> int:
+def update_an_existing_pet(id_pet: int, name_pet: str) -> int:
     upd_pet = {
         "id": id_pet,
         "category": {
@@ -71,7 +71,7 @@ def find_pet_by_status(status: str) -> int:
     return rsp.status_code
 
 
-def update_pet_with_data(id_pet: str, name_pet: str, status: str) -> int:
+def update_pet_with_data(id_pet: int, name_pet: str, status: str) -> int:
     upd_pet = {
         "id": id_pet,
         "category": {
@@ -95,7 +95,7 @@ def update_pet_with_data(id_pet: str, name_pet: str, status: str) -> int:
     return add_pet.status_code
 
 
-def deletes_pet(id_pet: str) -> int:
+def deletes_pet(id_pet: int) -> int:
     del_pet = requests.delete(f'{website_pet}/{id_pet}')
     return del_pet.status_code
 
@@ -107,7 +107,7 @@ def return_pet_inventories_by_status() -> int:
 
 def order_pet(data_order: typing.Union[datetime.date, str]) -> int:
     new_order = {
-        "id": 0,
+        "id": 1,
         "petId": 0,
         "quantity": 0,
         "shipDate": data_order,
@@ -118,12 +118,12 @@ def order_pet(data_order: typing.Union[datetime.date, str]) -> int:
     return add_order.status_code
 
 
-def find_purchase_order_by_id(id_pet: str) -> int:
+def find_purchase_order_by_id(id_pet: int) -> int:
     rsp = requests.get(f'{website_pet_store}order/{id_pet}')
     return rsp.status_code
 
 
-def delete_purchase_order_by_id(id_pet: str) -> int:
+def delete_purchase_order_by_id(id_pet: int) -> int:
     rsp = requests.delete(f'{website_pet_store}order/{id_pet}')
     print(website_pet_store + 'order/' + id_pet)
     return rsp.status_code
