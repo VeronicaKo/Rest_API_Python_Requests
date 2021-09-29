@@ -11,7 +11,9 @@ def test_create_list_of_users_with_given_input_array(user_name):
 
 
 def test_get_user_by_user_name():
-    assert base.get_user_by_user_name(user_array[3]) == 200, f'User {user_array[3]} is NOT found'
+    response = base.get_user_by_user_name(user_array[3])
+    assert response.status_code == 200, f'User {user_array[3]} is NOT found'
+    assert response.text == '{"id":9223372000666133206,"username":"Charlie","firstName":"string","lastName":"string","email":"string","password":"string","phone":"string","userStatus":0}'
 
 
 def test_updated_user():

@@ -144,9 +144,9 @@ def create_list_of_users_with_given_input_array(user_name: str) -> int:
     return added_user.status_code
 
 
-def get_user_by_user_name(user_name: str) -> int:
+def get_user_by_user_name(user_name: str):
     rsp = requests.get(f'{website_pet_user}{user_name}')
-    return rsp.status_code
+    return rsp
 
 
 def updated_user(user_name: str) -> int:
