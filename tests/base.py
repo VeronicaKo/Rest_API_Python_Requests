@@ -105,7 +105,7 @@ def return_pet_inventories_by_status() -> int:
     return rsp.status_code
 
 
-def order_pet(data_order: typing.Union[datetime.date, str]) -> int:
+def order_pet(data_order: str) -> int:
     new_order = {
         "id": 1,
         "petId": 0,
@@ -125,7 +125,6 @@ def find_purchase_order_by_id(id_pet: int) -> int:
 
 def delete_purchase_order_by_id(id_pet: int) -> int:
     rsp = requests.delete(f'{website_pet_store}order/{id_pet}')
-    print(website_pet_store + 'order/' + id_pet)
     return rsp.status_code
 
 
@@ -172,7 +171,7 @@ def delete_user(user_name: str) -> int:
 
 
 def logs_user_into_the_system(user_name: str, user_password: str) -> int:
-    rsp = requests.get(f'{website_pet_user}login?username={user_name}&password={user_password}')
+    rsp = requests.get(f'{website_pet_user}login', params={"username": user_name, "password": user_password})
     return rsp.status_code
 
 
