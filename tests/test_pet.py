@@ -2,6 +2,7 @@ import pytest
 import base
 from mimesis import Person
 
+id_pet_array = []
 
 def test_upload_image():
     file_name = 'dog.jpg'
